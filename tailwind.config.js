@@ -4,14 +4,12 @@ module.exports = {
   theme: {
     colors: {
       'black': '#121212',
-      'dark-gray': '#212121'
+      'dark-gray': '#212121',
+      'green': '#1db954'
     },
-    extend: {
-      fontFamily: {
-        'gotham-black': ['Gotham-Black', 'sans'],
-        'gotham-bold': ['Gotham-Bold', 'sans'],
-        'gotham-book-italic': ['GothamBookItalic', 'sans'],
-      }
+
+    fontFamily: {
+      'gotham-bold': ['Gotham-bold', 'sans'],
     }
   },
   plugins: [

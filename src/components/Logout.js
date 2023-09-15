@@ -1,6 +1,6 @@
 function Logout() {
     return (
-        <h1 className="font-gotham-book-italic text-white text-4xl">Logout</h1>
+        <h1 className="font-gotham-bold text-white text-2xl">Titres likés</h1>
     )
 }
 

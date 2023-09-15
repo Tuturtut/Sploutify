@@ -3,18 +3,20 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 
 function App() {
-  const logged = true;
 
-  const clientId = 'VOTRE_ID_CLIENT';
-  const redirectUri = 'URL_DE_RETOUR';
-  const scopes = 'user-top-read'; // Les autorisations que vous souhaitez demander à l'utilisateur
 
-  const spotifyAuthUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes}&response_type=token`;
+  const logged = false;
 
+  const loginInfo = {
+    clientId: process.env.REACT_APP_SPOTIFY_CLIENT_ID,
+    redirectUri: "http://localhost:3000/callback"
+  }
+
+  console.log(loginInfo.clientId)
 
   return (
-    <div className='font-gotham-black bg-dark-gray m-10 p-10 rounded-lg'>
-      {logged ? <Logout /> : <Login />}
+    <div className='font-gotham-black bg-dark-gray m-10 p-10 rounded-lg text-white'>
+      {logged ? <Logout /> : <Login loginInfo={loginInfo} />}
     </div >
 
   );
