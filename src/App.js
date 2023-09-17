@@ -62,7 +62,6 @@ function App() {
             <div>
               <h2>Informations de l'utilisateur :</h2>
               <p>Nom d'utilisateur : {userInfo.display_name}</p>
-              {/* Vous pouvez afficher d'autres informations de l'utilisateur ici */}
             </div>
           )}
         </>
