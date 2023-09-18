@@ -51,11 +51,18 @@ function App() {
   const handleLogout = () => {
     // Réinitialisez le jeton d'accès Spotify
     spotifyApi.setAccessToken(null);
+    // Clear url parameters
+    window.location.hash = '';
+
+    // Delete cookie using localStorage
+    localStorage.removeItem('access_token');
 
     // Mettez à jour l'état de connexion
     setLogged(false);
     setUserInfo(null); // Réinitialisez les informations de l'utilisateur
   };
+
+
 
   return (
     <div className='font-gotham-black bg-dark-gray m-10 p-10 rounded-lg text-white'>
@@ -63,9 +70,8 @@ function App() {
         <>
           <Logout onLogout={handleLogout} />
           {userInfo && (
-            <div>
-              <h2>Informations de l'utilisateur :</h2>
-              <p>Nom d'utilisateur : {userInfo.display_name}</p>
+            <div className='actualSong'>
+
             </div>
           )}
         </>
