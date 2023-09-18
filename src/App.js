@@ -51,6 +51,7 @@ function App() {
   const handleLogout = () => {
     // Réinitialisez le jeton d'accès Spotify
     spotifyApi.setAccessToken(null);
+
     // Clear url parameters
     window.location.hash = '';
 
@@ -62,6 +63,12 @@ function App() {
     setUserInfo(null); // Réinitialisez les informations de l'utilisateur
   };
 
+  const getCurrentUserSong = () => {
+    spotifyApi.getMyCurrentPlayingTrack().then((data) => {
+      console.log(data.item);
+    })
+  }
+
 
 
   return (
@@ -70,9 +77,16 @@ function App() {
         <>
           <Logout onLogout={handleLogout} />
           {userInfo && (
-            <div className='actualSong'>
+            <>
+              <div className="refreshButton">
+                <button onClick={getCurrentUserSong}>refresh</button>
 
-            </div>
+              </div>
+
+              <div className='actualSong'>
+
+              </div>
+            </>
           )}
         </>
       ) : (
