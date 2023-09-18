@@ -10,8 +10,12 @@ function App() {
 
   const loginInfo = {
     clientId: process.env.REACT_APP_SPOTIFY_CLIENT_ID,
-    redirectUri: 'http://localhost:3000/callback',
+    // redirect url in env + callback at the end
+    redirectUri: process.env.REACT_APP_SPOTIFY_REDIRECT_URI + '/callback',
   };
+
+
+  console.log(loginInfo.redirectUri);
 
   useEffect(() => {
     // Cette fonction sera exécutée lors du chargement initial du composant
